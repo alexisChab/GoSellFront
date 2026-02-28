@@ -1,0 +1,181 @@
+/* =====================================================
+   TOPBAR (BOUTON UNIQUE HAMBURGER)
+===================================================== */
+
+.topbar{
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 2000;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+            background 150ms ease,
+            transform 120ms ease,
+            box-shadow 150ms ease;
+}
+
+/* Hover visible mais propre */
+.topbar:hover{
+    background: rgba(255,255,255,0.10);
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.30);
+}
+
+/* Click effect */
+.topbar:active{
+    transform: scale(0.95);
+}
+
+/* Focus accessibilité */
+.topbar:focus-visible{
+    outline: 2px solid rgba(31, 60, 136, 0.6);
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   HAMBURGER LINES
+===================================================== */
+
+.hamburgerLines{
+    width: 20px;
+    height: 2px;
+    background: var(--c-text);
+    position: relative;
+    display: block;
+}
+
+.hamburgerLines::before,
+.hamburgerLines::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--c-text);
+}
+
+.hamburgerLines::before{ top: -6px; }
+.hamburgerLines::after{ top: 6px; }
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.menuOverlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+    z-index: 999;
+}
+
+.menuOverlay.open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   DRAWER
+===================================================== */
+
+.drawer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 290px;
+    background: var(--c-surface);
+    border-right: 1px solid var(--c-border);
+
+    transform: translateX(-105%);
+    transition: transform 200ms ease;
+
+    z-index: 1001;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.open{
+    transform: translateX(0);
+}
+
+.drawerHeader{
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.drawerTitle{
+    font-weight: 800;
+}
+
+.drawerClose{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+    background: transparent;
+    color: var(--c-text);
+    cursor: pointer;
+}
+
+.drawerNav{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.drawerLink{
+    display: block;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--c-border);
+    color: var(--c-text);
+    text-decoration: none;
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    text-align: left;
+}
+
+.drawerLink.active{
+    border-color: rgba(255,255,255,0.20);
+    background: rgba(31, 60, 136, 0.35);
+}
+
+.drawerLink.logout{
+    background: rgba(255,255,255,0.03);
+}
+
+.drawerFooter{
+    margin-top: auto;
+    padding: 12px;
+    border-top: 1px solid var(--c-border);
+}
+
+.muted{
+    color: var(--c-muted);
+    font-size: 13px;
+}

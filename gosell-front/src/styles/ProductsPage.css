@@ -1,0 +1,221 @@
+.pWrap {
+    padding: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.pTitle { margin: 0; font-size: 28px; }
+.pSubtitle { margin: 6px 0 0; opacity: 0.75; }
+
+.pHeaderRight { display: flex; gap: 10px; align-items: center; }
+.pCount { font-weight: 600; opacity: 0.85; }
+
+.cardLike {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.cardErr { border-color: rgba(255, 80, 80, 0.35); }
+
+.pControls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pSearch {
+    flex: 1;
+    min-width: 220px;
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.18);
+    color: inherit;
+    outline: none;
+}
+
+.pSelect {
+    height: 42px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.18);
+    color: inherit;
+    outline: none;
+}
+
+.pInput {
+    height: 42px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.18);
+    color: inherit;
+    outline: none;
+    width: 100%;
+}
+
+.pBtn {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    cursor: pointer;
+}
+
+.pBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pBtn--ghost { background: transparent; }
+
+.pFilters { padding-top: 12px; }
+
+.pFiltersGrid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.pField { display: flex; flex-direction: column; gap: 6px; }
+.pLabel { font-size: 12px; opacity: 0.75; }
+
+.pRanges {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.pRangeBlock {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pRangeTitle { font-size: 12px; opacity: 0.75; margin-bottom: 8px; }
+.pRangeRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.pPager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0 14px;
+}
+
+.pPageNum { opacity: 0.8; font-weight: 600; }
+
+.pGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+@media (max-width: 1050px) {
+    .pFiltersGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pRanges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .pFiltersGrid { grid-template-columns: 1fr; }
+    .pRanges { grid-template-columns: 1fr; }
+    .pGrid { grid-template-columns: 1fr; }
+}
+
+.pCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.pCardTop {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.pName { font-weight: 800; font-size: 16px; line-height: 1.2; }
+
+.pBadges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.pBadge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    opacity: 0.92;
+}
+
+.pBadge--ok { border-color: rgba(110, 255, 170, 0.35); }
+.pBadge--info { border-color: rgba(120, 190, 255, 0.35); }
+.pBadge--neutral { border-color: rgba(255, 255, 255, 0.14); }
+
+.pDesc {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.pDesc--muted { opacity: 0.65; }
+
+.pMeta {
+    margin-top: 12px;
+    display: grid;
+    gap: 6px;
+}
+
+.pMetaRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    opacity: 0.92;
+}
+
+.pMetaRow .k { opacity: 0.75; }
+
+.pFooter {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.75;
+    font-size: 12px;
+}
+
+.emptyTitle { font-weight: 700; margin-bottom: 6px; }
+.emptyText { opacity: 0.75; }
+/* Optionnel: rend les boutons toggle/reset un peu plus “pill” */
+.pBtn--ghost {
+    background: transparent;
+}
+
+.pBtn--ghost:hover {
+    background: rgba(255, 255, 255, 0.06);
+}

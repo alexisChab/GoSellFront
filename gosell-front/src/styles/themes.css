@@ -1,0 +1,22 @@
+:root{
+    --c-bg: #010326;
+    --c-surface: #0A0F3C;
+    --c-primary: #1F3C88;
+    --c-primary-hover: #2A4FBF;
+    --c-border: rgba(255,255,255,0.08);
+
+    --c-text: #FFFFFF;
+    --c-muted: rgba(255,255,255,0.65);
+
+    --radius: 18px;
+    --shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+
+*{ box-sizing: border-box; }
+
+body{
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+    background: var(--c-bg);
+    color: var(--c-text);
+}

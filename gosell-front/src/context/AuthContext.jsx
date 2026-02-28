@@ -24,6 +24,9 @@ export function AuthProvider({ children }) {
             method: "POST",
             body: JSON.stringify({ email, password }),
         });
+        if (data.csrf_access_token) {
+            localStorage.setItem("csrf_access_token", data.csrf_access_token);
+        }
         setUser(data.user);
         return data;
     }
