@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { apiRequest } from "../api/client";
 import "../styles/ProductsPage.css";
 
@@ -33,6 +34,8 @@ function toNumberOrNull(v) {
 }
 
 export default function ProductsPage() {
+    const navigate = useNavigate();
+
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [err, setErr] = useState("");
@@ -184,7 +187,7 @@ export default function ProductsPage() {
         setPage(1);
     }
 
-    // ✅ juste pour afficher un compteur de filtres actifs
+    // compteur de filtres actifs
     const activeFiltersCount = useMemo(() => {
         let n = 0;
         if (debouncedSearch) n += 1;
@@ -212,6 +215,11 @@ export default function ProductsPage() {
         prixMinEspereMin, prixMinEspereMax,
         prixMaxEspereMin, prixMaxEspereMax,
     ]);
+
+    // ✅ navigation produit
+    function openProduct(productId) {
+        navigate(`/app/produits/${productId}`);
+    }
 
     return (
         <div className="pWrap">
@@ -253,7 +261,6 @@ export default function ProductsPage() {
                     <option value="100">100 / page</option>
                 </select>
 
-                {/* ✅ bouton toggle filtres */}
                 <button
                     className="pBtn pBtn--ghost"
                     type="button"
@@ -268,7 +275,6 @@ export default function ProductsPage() {
                 </button>
             </div>
 
-            {/* ✅ bloc filtres pliable */}
             {filtersOpen && (
                 <div className="cardLike pFilters">
                     <div className="pFiltersGrid">
@@ -377,7 +383,15 @@ export default function ProductsPage() {
             {!loading && !err && items.length > 0 && (
                 <div className="pGrid">
                     {items.map((p) => (
-                        <div className="pCard" key={p.id}>
+                        <div
+                            className="pCard pCard--click"
+                            key={p.id}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => openProduct(p.id)}
+                            onKeyDown={(e) => { if (e.key === "Enter") openProduct(p.id); }}
+                            title="Ouvrir le produit"
+                        >
                             <div className="pCardTop">
                                 <div className="pName">{p.nom}</div>
                                 <div className="pBadges">{statusBadges(p)}</div>
@@ -399,6 +413,7 @@ export default function ProductsPage() {
 
                             <div className="pFooter">
                                 <span className="pId">#{p.id}</span>
+                                <span className="pOpenHint">Ouvrir →</span>
                             </div>
                         </div>
                     ))}

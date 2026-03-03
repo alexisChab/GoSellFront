@@ -1,221 +1,333 @@
-.pWrap {
-    padding: 18px;
+/* ProductsPage.css — version homogénéisée avec DashboardPage.css */
+
+.pWrap{
+    padding: 28px 28px 44px;
     max-width: 1100px;
     margin: 0 auto;
+    color: var(--c-text);
 }
 
-.pHeader {
+/* header */
+.pHeader{
+    margin-bottom: 18px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 12px;
-    margin-bottom: 14px;
 }
 
-.pTitle { margin: 0; font-size: 28px; }
-.pSubtitle { margin: 6px 0 0; opacity: 0.75; }
-
-.pHeaderRight { display: flex; gap: 10px; align-items: center; }
-.pCount { font-weight: 600; opacity: 0.85; }
-
-.cardLike {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 14px;
-    margin-bottom: 14px;
+.pTitle{
+    margin: 0;
+    font-size: 56px;
+    letter-spacing: -1px;
 }
 
-.cardErr { border-color: rgba(255, 80, 80, 0.35); }
+.pSubtitle{
+    margin: 8px 0 0;
+    color: var(--c-muted);
+    font-size: 18px;
+}
 
-.pControls {
+.pHeaderRight{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pCount{
+    font-weight: 800;
+    color: rgba(255,255,255,0.80);
+}
+
+/* “cards” (mêmes valeurs que .card du dashboard) */
+.cardLike{
+    background: rgba(10, 16, 60, 0.45);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 22px;
+    padding: 20px 22px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    margin-bottom: 18px;
+}
+
+.cardErr{
+    border-color: rgba(255, 90, 90, 0.35);
+    background: rgba(80, 10, 10, 0.25);
+}
+
+/* controls */
+.pControls{
     display: flex;
     gap: 10px;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.pSearch {
+.pSearch,
+.pSelect,
+.pInput{
+    height: 42px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.90);
+    outline: none;
+}
+
+.pSearch{
     flex: 1;
-    min-width: 220px;
-    height: 42px;
+    min-width: 240px;
     padding: 0 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(0, 0, 0, 0.18);
-    color: inherit;
-    outline: none;
 }
 
-.pSelect {
-    height: 42px;
+.pSelect{
     padding: 0 10px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(0, 0, 0, 0.18);
-    color: inherit;
-    outline: none;
 }
 
-.pInput {
-    height: 42px;
+.pInput{
     padding: 0 10px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(0, 0, 0, 0.18);
-    color: inherit;
-    outline: none;
     width: 100%;
 }
 
-.pBtn {
+.pSearch::placeholder{
+    color: rgba(255,255,255,0.45);
+}
+
+/* buttons */
+.pBtn{
     height: 42px;
-    padding: 0 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.06);
-    color: inherit;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.85);
+    font-weight: 800;
     cursor: pointer;
 }
 
-.pBtn:disabled {
-    opacity: 0.5;
+.pBtn:hover{
+    background: rgba(255,255,255,0.05);
+}
+
+.pBtn:disabled{
+    opacity: 0.55;
     cursor: not-allowed;
 }
 
-.pBtn--ghost { background: transparent; }
+/* ghost variant: même look que dashboard (subtle) */
+.pBtn--ghost{
+    background: rgba(255,255,255,0.02);
+}
 
-.pFilters { padding-top: 12px; }
+/* filters layout */
+.pFilters{ padding-top: 0; }
 
-.pFiltersGrid {
+.pFiltersGrid{
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 14px;
 }
 
-.pField { display: flex; flex-direction: column; gap: 6px; }
-.pLabel { font-size: 12px; opacity: 0.75; }
+.pField{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
-.pRanges {
+.pLabel{
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.60);
+}
+
+.pRanges{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.pRangeBlock{
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    border-radius: 18px;
+    padding: 14px 14px;
+}
+
+.pRangeTitle{
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.60);
+    margin-bottom: 10px;
+}
+
+.pRangeRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
-.pRangeBlock {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.pRangeTitle { font-size: 12px; opacity: 0.75; margin-bottom: 8px; }
-.pRangeRow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-.pPager {
+/* pager */
+.pPager{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin: 10px 0 14px;
+    margin: 10px 0 18px;
 }
 
-.pPageNum { opacity: 0.8; font-weight: 600; }
+.pPageNum{
+    opacity: 0.8;
+    font-weight: 900;
+}
 
-.pGrid {
+/* grid cards */
+.pGrid{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 18px;
 }
 
-@media (max-width: 1050px) {
-    .pFiltersGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .pRanges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .pGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1050px){
+    .pFiltersGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pRanges{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pTitle{ font-size: 44px; }
 }
 
-@media (max-width: 640px) {
-    .pFiltersGrid { grid-template-columns: 1fr; }
-    .pRanges { grid-template-columns: 1fr; }
-    .pGrid { grid-template-columns: 1fr; }
+@media (max-width: 640px){
+    .pFiltersGrid{ grid-template-columns: 1fr; }
+    .pRanges{ grid-template-columns: 1fr; }
+    .pGrid{ grid-template-columns: 1fr; }
+    .pWrap{ padding: 20px 16px 34px; }
+    .pTitle{ font-size: 38px; }
 }
 
-.pCard {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 14px;
+/* product card -> même “card” que dashboard mais un peu plus compact */
+.pCard{
+    background: rgba(10, 16, 60, 0.45);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 22px;
+    padding: 18px 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.30);
+    backdrop-filter: blur(10px);
 }
 
-.pCardTop {
+.pCardTop{
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
-.pName { font-weight: 800; font-size: 16px; line-height: 1.2; }
+.pName{
+    font-weight: 900;
+    font-size: 16px;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: -0.2px;
+}
 
-.pBadges {
+/* badges: calqués sur .badge du dashboard */
+.pBadges{
     display: flex;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 
-.pBadge {
-    font-size: 12px;
-    padding: 4px 8px;
+.pBadge{
+    display: inline-flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 10px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    opacity: 0.92;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.80);
+    font-weight: 800;
+    font-size: 12px;
 }
 
-.pBadge--ok { border-color: rgba(110, 255, 170, 0.35); }
-.pBadge--info { border-color: rgba(120, 190, 255, 0.35); }
-.pBadge--neutral { border-color: rgba(255, 255, 255, 0.14); }
+.pBadge--ok{
+    border-color: rgba(140, 220, 255, 0.35);
+    background: rgba(140, 220, 255, 0.10);
+    color: rgba(220, 245, 255, 0.95);
+}
 
-.pDesc {
-    margin-top: 10px;
+.pBadge--info{
+    border-color: rgba(120, 170, 255, 0.30);
+    background: rgba(31, 60, 136, 0.30);
+}
+
+.pBadge--neutral{
+    opacity: 0.85;
+}
+
+/* desc + meta */
+.pDesc{
     font-size: 13px;
     line-height: 1.35;
+    color: rgba(255,255,255,0.75);
 }
 
-.pDesc--muted { opacity: 0.65; }
+.pDesc--muted{
+    color: rgba(255,255,255,0.55);
+}
 
-.pMeta {
+.pMeta{
     margin-top: 12px;
     display: grid;
-    gap: 6px;
+    gap: 8px;
 }
 
-.pMetaRow {
+.pMetaRow{
     display: flex;
     justify-content: space-between;
     gap: 10px;
     font-size: 13px;
-    opacity: 0.92;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.10);
 }
 
-.pMetaRow .k { opacity: 0.75; }
+.pMetaRow:last-child{
+    border-bottom: none;
+}
 
-.pFooter {
+.pMetaRow .k{
+    color: rgba(255,255,255,0.70);
+}
+
+.pMetaRow .v{
+    color: rgba(255,255,255,0.88);
+    font-weight: 800;
+}
+
+.pFooter{
     margin-top: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    opacity: 0.75;
+    color: rgba(255,255,255,0.55);
     font-size: 12px;
 }
 
-.emptyTitle { font-weight: 700; margin-bottom: 6px; }
-.emptyText { opacity: 0.75; }
-/* Optionnel: rend les boutons toggle/reset un peu plus “pill” */
-.pBtn--ghost {
-    background: transparent;
+/* empty */
+.emptyTitle{
+    font-weight: 950;
+    font-size: 14px;
+    margin-bottom: 6px;
 }
 
-.pBtn--ghost:hover {
-    background: rgba(255, 255, 255, 0.06);
+.emptyText{
+    color: rgba(255,255,255,0.60);
+    font-size: 13px;
 }
+
+.pCard--click { cursor: pointer; }
+.pCard--click:hover { transform: translateY(-1px); }
+.pOpenHint { opacity: 0.7; font-weight: 800; }
